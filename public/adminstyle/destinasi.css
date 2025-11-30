@@ -1,0 +1,202 @@
+/* ==== GLOBAL ADMIN STYLE ==== */
+body {
+    background: #f5f7fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container */
+.admin-container {
+    padding: 20px;
+}
+
+/* Card */
+.admin-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    padding: 20px;
+}
+
+/* Button */
+.admin-btn {
+    padding: 10px 16px;
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.admin-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Input */
+.admin-input,
+.admin-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 15px;
+}
+
+.admin-input:focus,
+.admin-textarea:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+
+/* Grid */
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Detail Page */
+.detail-wrapper {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+.detail-img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.detail-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.rating {
+    background: #facc15;
+    padding: 6px 14px;
+    display: inline-block;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.add-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.table-wrapper {
+    margin-top: 25px;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    padding: 12px;
+    background: #1e40af;
+    color: white;
+    text-align: left;
+    font-size: 15px;
+}
+
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table tr:hover {
+    background: #f1f5f9;
+}
+
+.table-img {
+    width: 90px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.action-btn {
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+.btn-detail {
+    background: #2563eb;
+}
+
+.btn-detail:hover {
+    background: #1d4ed8;
+}
+
+.btn-edit {
+    background: #f59e0b;
+}
+
+.btn-edit:hover {
+    background: #d97706;
+}
+
+.btn-delete {
+    background: #dc2626;
+}
+
+.btn-delete:hover {
+    background: #b91c1c;
+}
+
+.admin-label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+    color: #374151;
+}
+
+.action-group {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px !important;
+}
+
+.action-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: inline-block !important;
+}
+
+.btn-edit {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-delete {
+    background: #ef4444;
+    color: white;
+}

@@ -20,22 +20,25 @@ class DestinasiController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $data = $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'kategori' => 'required',
-            'harga' => 'required|integer',
-            'rating' => 'nullable|numeric',
-            'gambar' => 'required|image'
-        ]);
+{
+    $data = $request->validate([
+        'judul' => 'required',
+        'deskripsi' => 'required',
+        'kategori' => 'required',
+        'harga' => 'required|integer',
+        'rating' => 'nullable|numeric',
+        'gambar' => 'required|image'
+    ]);
 
-        $data['gambar'] = $request->file('gambar')->store('destinasi', 'public');
+    $data['is_populer'] = $request->has('is_populer') ? 1 : 0;
 
-        Destinasi::create($data);
+    $data['gambar'] = $request->file('gambar')->store('destinasi', 'public');
 
-        return redirect()->route('admin.destinasi.index');
-    }
+    Destinasi::create($data);
+
+    return redirect()->route('admin.destinasi.index');
+}
+
 
     public function edit($id)
     {
@@ -43,27 +46,30 @@ class DestinasiController extends Controller
         return view('admin.destinasi.edit', compact('item'));
     }
 
-    public function update(Request $request, $id)
-    {
-        $item = Destinasi::findOrFail($id);
+   public function update(Request $request, $id)
+{
+    $item = Destinasi::findOrFail($id);
 
-        $data = $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'kategori' => 'required',
-            'harga' => 'required|integer',
-            'rating' => 'nullable|numeric',
-            'gambar' => 'nullable|image'
-        ]);
+    $data = $request->validate([
+        'judul' => 'required',
+        'deskripsi' => 'required',
+        'kategori' => 'required',
+        'harga' => 'required|integer',
+        'rating' => 'nullable|numeric',
+        'gambar' => 'nullable|image'
+    ]);
 
-        if ($request->hasFile('gambar')) {
-            $data['gambar'] = $request->file('gambar')->store('destinasi', 'public');
-        }
+    $data['is_populer'] = $request->has('is_populer') ? 1 : 0;
 
-        $item->update($data);
-
-        return redirect()->route('admin.destinasi.index');
+    if ($request->hasFile('gambar')) {
+        $data['gambar'] = $request->file('gambar')->store('destinasi', 'public');
     }
+
+    $item->update($data);
+
+    return redirect()->route('admin.destinasi.index');
+}
+
 
     public function destroy($id)
     {

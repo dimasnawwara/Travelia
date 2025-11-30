@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DestinasiController;
+use App\Http\Controllers\KategoriController;
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DestinasiController as AdminDestinasiController;
@@ -74,9 +75,8 @@ Route::middleware(['auth'])->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/kategori/gunung', fn() => view('kategori.gunung'))->name('kategori.gunung');
-Route::get('/kategori/budaya', fn() => view('kategori.budaya'))->name('kategori.budaya');
-Route::get('/kategori/pantai', fn() => view('kategori.pantai'))->name('kategori.pantai');
+Route::get('/kategori/{kategori}', [KategoriController::class, 'show'])
+    ->name('kategori.show');
 
 /*
 |--------------------------------------------------------------------------
@@ -85,19 +85,25 @@ Route::get('/kategori/pantai', fn() => view('kategori.pantai'))->name('kategori.
 */
 
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+
     Route::get('/', [AdminDashboardController::class, 'index'])
         ->name('admin.dashboard');
 
+    // CRUD destinasi
     Route::resource('destinasi', AdminDestinasiController::class, ['as' => 'admin']);
+
+    // User admin control
     Route::resource('users', AdminUserController::class, ['as' => 'admin'])
         ->only(['index', 'destroy']);
 
     Route::post('users/{user}/toggle-admin', [AdminUserController::class, 'toggleAdmin'])
         ->name('admin.users.toggleAdmin');
 
+    // Contact
     Route::resource('contacts', AdminContactController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'destroy']);
 
+    // Checkout
     Route::resource('checkouts', AdminCheckoutController::class, ['as' => 'admin'])
         ->only(['index', 'show']);
 

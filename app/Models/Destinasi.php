@@ -9,11 +9,13 @@ class Destinasi extends Model
     protected $table = "destinasi";
 
     protected $fillable = [
-        'judul',
-        'deskripsi',
-        'kategori',
-        'gambar',
-        'harga',
-        'rating'
-    ];
+    'judul',
+    'kategori',
+    'harga',
+    'rating',
+    'gambar',
+    'deskripsi',
+    'is_populer'
+];
+
 }

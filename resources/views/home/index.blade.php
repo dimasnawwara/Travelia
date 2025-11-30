@@ -2,48 +2,100 @@
 
 @section('content')
 
+{{-- ================= CSS KHUSUS ================= --}}
+<link rel="stylesheet" href="{{ asset('css/kategori.css') }}">
+
+
 {{-- ================= HERO SECTION ================= --}}
-<div id="home" class="hero-wrapper">
+<section id="home" class="hero-wrapper">
     <div class="hero">
-        <div>
+        <div class="hero-text">
             <h1>Jelajahi Destinasi Wisata Impianmu</h1>
             <p>Lihat katalog wisata terbaik dengan informasi lengkap dan harga terbaru</p>
         </div>
     </div>
-</div>
+</section>
 
-{{-- ================= DESTINASI POPULER ================= --}}
-<h2 class="section-title">Destinasi Populer</h2>
 
-<div class="destinations">
+{{-- ================= KATEGORI DESTINASI ================= --}}
+<section id="kategori" class="kategori-section">
 
-    @forelse ($popular as $p)
-    <div class="card">
-        <img src="{{ asset('storage/' . $p->gambar) }}" alt="">
+    <h2 class="section-title">Kategori Destinasi</h2>
+    <p class="section-subtitle">Pilih jenis liburan sesuai keinginanmu</p>
 
-        <div class="card-body">
-            <h3>{{ $p->judul }}</h3>
-
-            <p>Rp {{ number_format($p->harga, 0, ',', '.') }}</p>
-
-            <div class="rating">{{ $p->rating ?? '5.0' }}</div>
-        </div>
-
-        <a href="{{ route('destinasi.show', $p->id) }}" class="btn-detail">Detail</a>
+    {{-- Tombol kategori --}}
+    <div class="kategori-buttons">
+        <a href="{{ route('kategori.show', 'pantai') }}" class="btn-kategori">Pantai</a>
+        <a href="{{ route('kategori.show', 'budaya') }}" class="btn-kategori">Budaya</a>
+        <a href="{{ route('kategori.show', 'gunung') }}" class="btn-kategori">Gunung</a>
     </div>
 
-    @empty
-        <p style="text-align:center; width:100%;">Belum ada destinasi ditambahkan admin.</p>
-    @endforelse
+    {{-- Gambar kategori --}}
+    <div class="kategori-grid">
 
-</div>
+        {{-- Pantai --}}
+        <div class="kategori-card">
+            <a href="{{ route('kategori.show', 'pantai') }}">
+                <img src="{{ $pantai ? asset('storage/'.$pantai->gambar) : asset('images/default.jpg') }}" class="kategori-img">
+                <h3>Pantai</h3>
+            </a>
+        </div>
+
+        {{-- Budaya --}}
+        <div class="kategori-card">
+            <a href="{{ route('kategori.show', 'budaya') }}">
+                <img src="{{ $budaya ? asset('storage/'.$budaya->gambar) : asset('images/default.jpg') }}" class="kategori-img">
+                <h3>Budaya</h3>
+            </a>
+        </div>
+
+        {{-- Gunung --}}
+        <div class="kategori-card">
+            <a href="{{ route('kategori.show', 'gunung') }}">
+                <img src="{{ $gunung ? asset('storage/'.$gunung->gambar) : asset('images/default.jpg') }}" class="kategori-img">
+                <h3>Gunung</h3>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+{{-- ================= DESTINASI POPULER ================= --}}
+<section id="destinasi" class="populer-section">
+    <h2 class="section-title">Destinasi Populer</h2>
+
+    <div class="destinations">
+
+        @forelse ($popular as $p)
+        <div class="card">
+
+            <img src="{{ asset('storage/' . $p->gambar) }}" alt="{{ $p->judul }}">
+
+            <div class="card-body">
+                <h3>{{ $p->judul }}</h3>
+                <p class="harga">Rp {{ number_format($p->harga, 0, ',', '.') }}</p>
+                <div class="rating">{{ $p->rating ?? '5.0' }}</div>
+            </div>
+
+            <a href="{{ route('destinasi.show', $p->id) }}" class="btn-detail">Detail</a>
+        </div>
+        @empty
+            <p class="no-data">Belum ada destinasi ditambahkan admin.</p>
+        @endforelse
+
+    </div>
+</section>
+
 
 {{-- ================= TENTANG ================= --}}
 <section id="tentang" class="tentang-section">
     <div class="tentang-wrapper">
 
         <div class="tentang-left">
-            <h2>tentang TraveliA</h2>
+            <h2>Tentang TraveliA</h2>
             <p>
                 TraveliA adalah platform perjalanan yang membantu kamu menjelajahi
                 destinasi wisata impian dengan informasi lengkap, foto, harga, dan rating.
@@ -68,12 +120,15 @@
     </div>
 </section>
 
-{{-- ================= FOOTER (tidak diubah) ================= --}}
+
+{{-- ================= FOOTER ================= --}}
 <section id="kontak" class="footer-section">
     <div class="footer-content">
 
+        {{-- Footer kiri --}}
         <div class="footer-left">
             <h3>Kontak kami</h3>
+
             <p><b>Alamat:</b> Jl. Blah No 112, Aceh, Indonesia</p>
             <p><b>Email:</b> support@travelia.com</p>
             <p><b>Telp/WA:</b> +62 838-9300-8251</p>
@@ -93,15 +148,15 @@
             </div>
         </div>
 
+        {{-- Footer kanan --}}
         <div class="footer-right">
             <h3>Butuh Bantuan?</h3>
             <p>Layanan pelanggan tersedia setiap hari jam 08.00—21.00 WIB.</p>
             <p><b>Hotline:</b> +62 838-9300-8251</p>
-            <img src="{{ asset('images/logotravelia.jpg') }}" class="footer-logo">
+            <img src="{{ asset('images/logotravelia.jpg') }}" alt="Logo" class="footer-logo">
         </div>
 
     </div>
 </section>
 
 @endsection
-

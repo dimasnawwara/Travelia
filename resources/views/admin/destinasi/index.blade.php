@@ -1,33 +1,71 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
 @section('content')
 <div class="container mx-auto py-10">
 
-    <h2 class="text-3xl font-bold mb-6">Destinasi</h2>
+    <div class="flex justify-between mb-6">
+        <h2 class="text-3xl font-bold">Destinasi</h2>
 
-    <div class="grid grid-cols-3 gap-6">
+        <a href="{{ route('admin.destinasi.create') }}" class="add-btn">
+            + Tambah Destinasi
+        </a>
+    </div>
 
-        @foreach($items as $d)
-        <div class="bg-white rounded-xl shadow p-3">
-            <img src="{{ asset('storage/'.$d->gambar) }}" class="rounded-lg h-48 w-full object-cover">
+    <div class="table-wrapper">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Gambar</th>
+                    <th>Judul</th>
+                    <th>Kategori</th>
+                    <th>Harga</th>
+                    <th>Rating</th>
+                    <th style="width: 200px">Aksi</th>
+                </tr>
+            </thead>
 
-            <h3 class="text-xl font-bold mt-3">{{ $d->judul }}</h3>
+            <tbody>
+                @foreach($items as $d)
+                <tr>
+                    <td>
+                        <img src="{{ asset('storage/'.$d->gambar) }}" class="table-img">
+                    </td>
 
-            <p class="text-gray-500 mt-1">
-                {{ Str::limit($d->deskripsi, 100) }}
-            </p>
+                    <td>{{ $d->judul }}</td>
+                    <td>{{ $d->kategori }}</td>
 
-            <div class="mt-3 text-lg font-semibold">
-                Rp {{ number_format($d->harga,0,',','.') }}
-            </div>
+                    <td>Rp {{ number_format($d->harga,0,',','.') }}</td>
 
-            <a href="{{ route('destinasi.show', $d->id) }}"
-               class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg">
-               Detail
-            </a>
-        </div>
-        @endforeach
+                    <td>{{ $d->rating ?? '5.0' }}</td>
 
+           <td>
+    <div class="action-group">
+
+        <a href="{{ route('admin.destinasi.edit', $d->id) }}" 
+           class="action-btn btn-edit">
+            Edit
+        </a>
+
+        <form action="{{ route('admin.destinasi.destroy', $d->id) }}" 
+              method="POST"
+              onsubmit="return confirm('Hapus destinasi ini?')">
+            @csrf
+            @method('DELETE')
+
+            <button type="submit" class="action-btn btn-delete">
+                Hapus
+            </button>
+        </form>
+
+    </div>
+</td>
+
+
+                </tr>
+                @endforeach
+            </tbody>
+
+        </table>
     </div>
 </div>
 @endsection
