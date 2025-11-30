@@ -1,0 +1,77 @@
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 8px; /* Tinggi navbar lebih kecil */
+    background: #ffffff; /* Warna putih */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    z-index: 1000;
+    height: 40px; /* Tinggi fix supaya tidak melebar */
+}
+
+/* List menu navbar */
+.navbar ul {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+/* Link menu navbar */
+.navbar ul li a {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* Logo kiri */
+.logo img {
+    width: 26px;
+}
+
+/* Bagian kanan navbar (link + tombol login) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Wrapper link navigasi */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.btn-logout {
+    background: #ff4b4b;
+    border: none;
+    padding: 10px 22px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.24);
+}
+
+/* Hover effect merah menyala */
+.btn-logout:hover {
+    background: #ff1f1f;
+    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Saat ditekan */
+.btn-logout:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}

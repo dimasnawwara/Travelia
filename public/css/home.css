@@ -1,0 +1,570 @@
+/* ============================================================
+   GLOBAL STYLE
+   ============================================================ */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding-top: 0;
+    background: linear-gradient(to bottom, #ffffff, #8bb0ff, #4e7bff); /* Background biru gradasi */
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed !important;
+    top: 0 !important;        /* FIX TERBESAR */
+    left: 0 !important;       /* FIX TERBESAR */
+    z-index: 10000 !important;
+    height: 40px;
+}
+
+
+/* List menu navbar */
+.navbar ul {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+/* Link menu navbar */
+.navbar ul li a {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* Logo kiri */
+.logo img {
+    width: 26px;
+}
+
+/* Bagian kanan navbar (link + tombol login) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Wrapper link navigasi */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.btn-logout {
+    background: #ff4b4b;
+    border: none;
+    padding: 10px 22px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.24);
+}
+
+/* Hover effect merah menyala */
+.btn-logout:hover {
+    background: #ff1f1f;
+    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Saat ditekan */
+.btn-logout:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+/* Hero background utama */
+.hero {
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+    height: 500px;
+    background: url('/images/index.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 17px;
+    margin-top: -10px;
+}
+
+/* ============================================================
+   DESTINASI POPULER
+   ============================================================ */
+.section-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 40px;
+    color: rgb(0, 0, 0); /* judul warna hitam */
+}
+
+/* Container 3 kartu destinasi */
+.destinations {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+/* Kartu destinasi */
+.card {
+    width: 250px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin: 5px 0 10px;
+}
+
+/* Badge rating */
+.rating {
+    background: #e7f4ff;
+    color: #0b84ff;
+    width: 45px;
+    padding: 4px 0;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ============================================================
+   KATEGORI DESTINASI (Gunung, Pantai, dll)
+   ============================================================ */
+.kategori-section {
+    margin-top: 60px;
+}
+
+/* Header background kategori */
+.kategori-header {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.kategori-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Judul di tengah background */
+.kategori-title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+/* Card kategori */
+.kategori-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: -80px;
+}
+
+.k-card {
+    width: 260px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.k-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.k-body {
+    padding: 15px;
+}
+
+/* Judul card */
+.k-body h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Deskripsi card */
+.k-body p {
+    font-size: 14px;
+    margin: 5px 0 10px;
+}
+
+.k-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-detail {
+    display: inline-block;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, #4da3ff, #1c6ed5);
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 110, 213, 0.25);
+}
+
+/* Hover effect */
+.btn-detail:hover {
+    background: linear-gradient(135deg, #66b6ff, #1c6ed5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(30, 110, 213, 0.35);
+}
+
+/* Saat ditekan */
+.btn-detail:active {
+    transform: scale(0.97);
+    box-shadow: none;
+}
+
+/* ============================================================
+   KATEGORI – SECTION INFO (Background besar)
+   ============================================================ */
+.section-info {
+    background-image: url('/images/bacground.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.info-wrapper {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Judul kategori */
+.info-left h2 {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* Deskripsi kategori */
+.info-left p {
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
+/* Tombol kategori */
+.info-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-info {
+    background: #3D80F4;
+    padding: 14px 25px;
+    color: white;
+    border-radius: 12px;
+    width: 150px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Gambar kanan */
+.info-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-right img {
+    width: 340px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+/* Override warna hitam (permintaanmu sebelumnya) */
+.info-left h2 {
+    color: #000 !important;
+}
+
+.info-left p {
+    color: #000 !important;
+}
+
+/* Section kategori versi besar */
+.category-section {
+    border-radius: 0 !important;
+    margin-top: 0 !important;
+    padding: 120px 0 100px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Menghilangkan background biru dari container */
+.section-wrapper,
+.cards-wrapper {
+    background: transparent !important;
+}
+
+/* Perbaikan posisi cards */
+.kategori-cards {
+    margin-top: 30px !important;
+}
+
+.cards-container {
+    margin-top: 40px !important;
+}
+
+/* Judul kategori besar */
+.category-title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 40px;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+}
+
+/* Card list */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Card destinasi besar */
+.destination-card {
+    width: 320px;
+    background: white;
+    padding: 15px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+/* Footer card */
+.card-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =================================================================
+   TENTANG TRAVELIA
+   ================================================================= */
+.tentang-section {
+    width: 100%;
+    padding: 100px 0;
+    background: linear-gradient(to bottom,#E4F1FC,#D6EBFD,#C6E0FA);
+    display: flex;
+    justify-content: center;
+}
+
+/* Container biru besar */
+.tentang-wrapper {
+    display: flex;
+    gap: 40px;
+    width: 85%;
+    background: #2A77F2;
+    padding: 50px;
+    border-radius: 35px;
+    color: white;
+}
+
+.tentang-left {
+    flex: 2;
+}
+
+.tentang-left h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.tentang-buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-info {
+    background: #4C97FF;
+    padding: 14px 20px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.tentang-right {
+    flex: 1.2;
+}
+
+.tentang-right h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Tombol untuk menuju halaman destinasi */
+.btn-destinasi {
+    display: inline-block;
+    margin-top: 20px;
+    background: white;
+    color: #2A77F2;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer-section {
+    background: #F6F9FD;
+    width: 100%;
+    padding: 70px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-left,
+.footer-right {
+    width: 48%;
+}
+
+/* Form kontak */
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.form-contact input,
+.form-contact textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.form-contact button {
+    background: #2A77F2;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Sosial media */
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #2A77F2;
+    font-weight: 500;
+}
+
+/* Logo footer */
+.footer-logo {
+    width: 180px;
+    margin-top: 40px;
+}
+

@@ -1,0 +1,142 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* WRAPPER UTAMA */
+.login-container {
+    height: 100vh;
+    display: flex;
+}
+
+/* ============================
+    LEFT SIDE (FORM)
+============================ */
+.login-left {
+    width: 45%;
+    background: #111418;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-box {
+    width: 80%;
+    max-width: 360px;
+}
+
+.login-title {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.login-sub {
+    color: #b4b4b4;
+    margin-top: 6px;
+    margin-bottom: 30px;
+}
+
+/* INPUT */
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    color: #e6e6e6;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid #4a4a4a;
+    padding: 10px 5px;
+    font-size: 14px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-bottom-color: #9f6efe;
+}
+
+/* BUTTON LOGIN */
+.btn-login {
+    width: 100%;
+    background: #0099ff;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: #004989;
+}
+
+/* ERROR */
+.alert-error {
+    background: #ffdbdb;
+    color: #c72929;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* SIGN UP */
+.no-account {
+    color: #c5c5c5;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.btn-signup {
+    background: #2d2f35;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    margin-left: 8px;
+}
+
+/* ============================
+    RIGHT SIDE (ILLUSTRATION)
+============================ */
+.login-right {
+    width: 55%;
+    background: #8ea8c1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    color: white;
+    border-radius: 0 20px 20px 0;
+}
+
+.text-area h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.text-area p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.login-illustration {
+    width: 380px;
+    margin-top: 40px;
+}
