@@ -1,0 +1,81 @@
+/* Wrapper utama */
+.checkout-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Judul halaman */
+.checkout-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #2d2d2d;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Form Group Row */
+.checkout-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+/* Label */
+.checkout-label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #444;
+}
+
+/* Input */
+.checkout-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    transition: 0.2s ease;
+}
+
+.checkout-input:focus {
+    border-color: #4A84FF;
+    box-shadow: 0 0 6px rgba(74, 132, 255, 0.35);
+    outline: none;
+}
+
+/* Tombol Pesan */
+.checkout-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: #ff5151;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.25s ease;
+    font-family: "Poppins", sans-serif;
+}
+
+.checkout-btn:hover {
+    background: #e94444;
+    transform: translateY(-2px);
+}
+
+/* Background halaman */
+.checkout-page-bg {
+    background: linear-gradient(to bottom, #6ea8ff, #d8e6ff);
+    min-height: 100vh;
+    padding: 40px 0;
+}

@@ -7,7 +7,7 @@
 
 
 {{-- ================= HERO SECTION ================= --}}
-<section id="home" class="hero-wrapper">
+<section id="landing" class="hero-wrapper">
     <div class="hero">
         <div class="hero-text">
             <h1>Jelajahi Destinasi Wisata Impianmu</h1>
@@ -23,12 +23,6 @@
     <h2 class="section-title">Kategori Destinasi</h2>
     <p class="section-subtitle">Pilih jenis liburan sesuai keinginanmu</p>
 
-    {{-- Tombol kategori --}}
-    <div class="kategori-buttons">
-        <a href="{{ route('kategori.show', 'pantai') }}" class="btn-kategori">Pantai</a>
-        <a href="{{ route('kategori.show', 'budaya') }}" class="btn-kategori">Budaya</a>
-        <a href="{{ route('kategori.show', 'gunung') }}" class="btn-kategori">Gunung</a>
-    </div>
 
     {{-- Gambar kategori --}}
     <div class="kategori-grid">
@@ -44,7 +38,7 @@
         {{-- Budaya --}}
         <div class="kategori-card">
             <a href="{{ route('kategori.show', 'budaya') }}">
-                <img src="{{ $budaya ? asset('storage/'.$budaya->gambar) : asset('images/default.jpg') }}" class="kategori-img">
+                <img src="{{ $budaya ? asset('storage/'.$budaya->gambar) : asset('images/download.jpeg') }}" class="kategori-img">
                 <h3>Budaya</h3>
             </a>
         </div>
@@ -114,7 +108,7 @@
                 Kami menyajikan informasi terbaru, tips, dan rekomendasi untuk membantu
                 merencanakan liburanmu.
             </p>
-            <a href="#destinasi" class="btn-destinasi">Lihat destinasi</a>
+            <a href="#kategori" class="btn-destinasi">Lihat destinasi</a>
         </div>
 
     </div>

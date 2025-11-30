@@ -61,10 +61,19 @@ Route::get('/destinasi/{id}', [DestinasiController::class, 'show'])->name('desti
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/my-checkout/{checkout}', [CheckoutController::class, 'show'])->name('checkout.show');
+
+    // Halaman checkout
+    Route::get('/checkout/{id}', [CheckoutController::class, 'index'])
+        ->name('checkout');
+
+    // PROSES FORM CHECKOUT (FIX MISSED ROUTE)
+    Route::post('/checkout/{id}', [CheckoutController::class, 'store'])
+        ->name('checkout.store');
+
     Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
     Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 });
+
 
 
 
@@ -75,8 +84,14 @@ Route::middleware(['auth'])->group(function () {
 |--------------------------------------------------------------------------
 */
 
+Route::get('/kategori', [KategoriController::class, 'index'])
+    ->name('kategori.index');
+
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show'])
     ->name('kategori.show');
+
+Route::get('/kategori/{kategori}/{id}', [KategoriController::class, 'detail'])
+    ->name('kategori.detail');
 
 /*
 |--------------------------------------------------------------------------

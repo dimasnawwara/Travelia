@@ -1,25 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="checkout-container">
-    <h1>Checkout Tiket Wisata</h1>
 
-    <form action="/checkout/{{ $destinasi->id }}" method="POST">
-        @csrf
+<link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
 
-        <label>Nama</label>
-        <input type="text" name="nama" required>
+<div class="checkout-page-bg">
+    <div class="checkout-container">
+        <h2 class="checkout-title">Checkout Tiket Wisata</h2>
 
-        <label>Email</label>
-        <input type="email" name="email" required>
+        <form action="{{ route('checkout.store', $destinasi->id) }}" method="POST">
+            @csrf
 
-        <label>Tujuan Wisata</label>
-        <input type="text" value="{{ $destinasi->nama }}" disabled>
+            <div class="checkout-row">
+                <div class="form-group">
+                    <label class="checkout-label">Nama</label>
+                    <input type="text" name="nama" class="checkout-input" required>
+                </div>
 
-        <label>Jumlah Tiket</label>
-        <input type="number" name="jumlah" min="1" required>
+                <div class="form-group">
+                    <label class="checkout-label">Email</label>
+                    <input type="email" name="email" class="checkout-input" required>
+                </div>
+            </div>
 
-        <button class="btn-submit">Pesan</button>
-    </form>
+            <div class="checkout-row">
+                <div class="form-group">
+                    <label class="checkout-label">Tujuan Wisata</label>
+                    <input type="text" value="{{ $destinasi->nama }}" class="checkout-input" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkout-label">Jumlah Tiket</label>
+                    <input type="number" name="jumlah" class="checkout-input" min="1" required>
+                </div>
+            </div>
+
+            <button class="checkout-btn">Pesan</button>
+        </form>
+    </div>
 </div>
+
 @endsection

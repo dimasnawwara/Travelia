@@ -22,7 +22,7 @@
         <div class="nav-right">
             <div class="nav-links">
                 <a href="{{ url('/') }}#home">Home</a>
-                <a href="{{ url('/') }}#destinasi">Destinasi</a>
+                <a href="{{ url('/') }}#kategori">Destinasi</a>
                 <a href="{{ url('/') }}#tentang">Tentang</a>
                 <a href="{{ url('/') }}#kontak">Kontak</a>
 
