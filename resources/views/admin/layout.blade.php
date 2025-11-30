@@ -27,7 +27,7 @@
             <li><a href="/admin">📊 Dashboard</a></li>
             <li><a href="/admin/destinasi">🌍 Destinasi</a></li>
             <li><a href="/admin/users">👤 Users</a></li>
-            <li><a href="/admin/checkout">🛒 Checkout</a></li>
+            <li><a href="{{ route('admin.pesanan.index') }}">Pesanan</a></li>
             <li><a href="/admin/contacts">📩 Contacts</a></li>
         </ul>
 

@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DestinasiController as AdminDestinasiController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
-use App\Http\Controllers\Admin\CheckoutController as AdminCheckoutController;
+use App\Http\Controllers\Admin\PesananController as AdminPesananController;
 
 
 /*
@@ -119,8 +119,9 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         ->only(['index', 'show', 'destroy']);
 
     // Checkout
-    Route::resource('checkouts', AdminCheckoutController::class, ['as' => 'admin'])
-        ->only(['index', 'show']);
+
+Route::resource('pesanan', AdminPesananController::class, ['as' => 'admin'])
+    ->only(['index', 'show']);
 
     Route::post('checkouts/{checkout}/status', [AdminCheckoutController::class, 'updateStatus'])
         ->name('admin.checkouts.status');
