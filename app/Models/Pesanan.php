@@ -15,7 +15,15 @@ class Pesanan extends Model
     ];
 
     public function destinasi()
-    {
-        return $this->belongsTo(Destinasi::class);
-    }
+{
+    return $this->belongsTo(Destinasi::class);
+}
+
+public function getJumlahTiketAttribute()
+{
+    return $this->jumlah;
+}
+
+
+    
 }

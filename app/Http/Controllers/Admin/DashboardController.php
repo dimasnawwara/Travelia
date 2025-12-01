@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Destinasi;
 use App\Models\User;
-use App\Models\Checkout;
+use App\Models\Pesanan;
 
 class DashboardController extends Controller 
 {
@@ -13,20 +13,20 @@ class DashboardController extends Controller
     {
         $totalDestinasi = Destinasi::count();
         $totalUsers     = User::count();
-        $totalCheckout  = Checkout::count();
+        $totalPesanan  = Pesanan::count();
 
         // Grafik per bulan
         $months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
 
         $salesData = [];
         for ($m = 1; $m <= 12; $m++) {
-            $salesData[] = Checkout::whereMonth('created_at', $m)->count();
+            $salesData[] = Pesanan::whereMonth('created_at', $m)->count();
         }
 
         return view('admin.dashboard', compact(
             'totalDestinasi',
             'totalUsers',
-            'totalCheckout',
+            'totalPesanan',
             'months',
             'salesData'
         ));

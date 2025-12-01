@@ -1,0 +1,51 @@
+.title-admin {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.contacts-table th,
+.contacts-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.contacts-table th {
+    background: #4a90e2;
+    color: white;
+}
+
+.contacts-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.btn-delete {
+    background: #d9534f;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: #c9302c;
+}
+
+/* Button Group — sejajarkan tombol */
+.btn-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Fix form biar tidak turun */
+.btn-group form {
+    margin: 0;
+}

@@ -70,8 +70,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout/{id}', [CheckoutController::class, 'store'])
         ->name('checkout.store');
 
-    Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
-    Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+    // User kirim pesan dari footer
+Route::post('/contact/send', [ContactController::class, 'store'])
+    ->name('contact.store');
+
 });
 
 
@@ -115,8 +118,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         ->name('admin.users.toggleAdmin');
 
     // Contact
-    Route::resource('contacts', AdminContactController::class, ['as' => 'admin'])
+Route::resource('contacts', AdminContactController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'destroy']);
+
+
 
     // Checkout
 

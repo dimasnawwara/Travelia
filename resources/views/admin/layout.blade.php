@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('adminstyle/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('adminstyle/destinasi.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminstyle/admin-pesanan.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminstyle/admin-contacts.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminstyle/admin-users.css') }}">
     <link rel="stylesheet" href="{{ asset('css/kategori.css') }}">
     @yield('css')
 </head>
@@ -24,11 +28,11 @@
         </div>
 
         <ul class="menu-list">
-            <li><a href="/admin">📊 Dashboard</a></li>
-            <li><a href="/admin/destinasi">🌍 Destinasi</a></li>
-            <li><a href="/admin/users">👤 Users</a></li>
-            <li><a href="{{ route('admin.pesanan.index') }}">Pesanan</a></li>
-            <li><a href="/admin/contacts">📩 Contacts</a></li>
+        <li><a href="/admin"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+        <li><a href="/admin/destinasi"><i class="fa-solid fa-earth-asia"></i> Destinasi</a></li>
+        <li><a href="/admin/users"><i class="fa-solid fa-user-group"></i> Users</a></li>
+        <li><a href="/admin/pesanan"><i class="fa-solid fa-ticket"></i> Pesanan</a></li>
+        <li><a href="/admin/contacts"><i class="fa-solid fa-envelope"></i> Contacts</a></li>
         </ul>
 
         <form action="/logout" method="POST">

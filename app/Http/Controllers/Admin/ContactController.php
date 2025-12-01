@@ -1,24 +1,28 @@
 <?php
-// app/Http/Controllers/Admin/ContactController.php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 
-class ContactController extends Controller {
-    public function index() {
-        $contacts = Contact::orderBy('created_at','desc')->paginate(20);
+class ContactController extends Controller
+{
+    public function index()
+    {
+        $contacts = Contact::latest()->get();
         return view('admin.contacts.index', compact('contacts'));
     }
 
-    public function show(Contact $contact) {
-        $contact->is_read = true;
-        $contact->save();
+    public function show($id)
+    {
+        $contact = Contact::findOrFail($id);
         return view('admin.contacts.show', compact('contact'));
     }
 
-    public function destroy(Contact $contact) {
-        $contact->delete();
-        return back()->with('success','Deleted.');
+    public function destroy($id)
+    {
+        Contact::findOrFail($id)->delete();
+        return redirect()->route('admin.contacts.index')
+            ->with('success', 'Pesan berhasil dihapus');
     }
 }

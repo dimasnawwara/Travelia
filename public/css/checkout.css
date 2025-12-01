@@ -1,32 +1,41 @@
-/* Wrapper utama */
-.checkout-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
+/* BACKGROUND */
+.checkout-page-bg {
+    background: linear-gradient(to bottom, #6ea8ff, #d8e6ff);
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+/* WRAPPER 2 KOLOM */
+.checkout-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 35px;
+    padding: 20px;
+}
+
+/* FORM LEFT */
+.checkout-left {
     background: #ffffff;
+    padding: 30px;
     border-radius: 18px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* Judul halaman */
 .checkout-title {
-    text-align: center;
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 25px;
-    color: #2d2d2d;
+    text-align: left;
     font-family: "Poppins", sans-serif;
 }
 
-/* Form Group Row */
-.checkout-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
+/* FORM INPUT */
+.form-group {
     margin-bottom: 18px;
 }
 
-/* Label */
 .checkout-label {
     font-size: 15px;
     font-weight: 600;
@@ -35,7 +44,6 @@
     color: #444;
 }
 
-/* Input */
 .checkout-input {
     width: 100%;
     padding: 12px 14px;
@@ -52,10 +60,10 @@
     outline: none;
 }
 
-/* Tombol Pesan */
+/* PINDEN BUTTON */
 .checkout-btn {
     width: 100%;
-    padding: 14px 0;
+    padding: 14px;
     background: #ff5151;
     color: white;
     border: none;
@@ -65,7 +73,6 @@
     cursor: pointer;
     margin-top: 10px;
     transition: 0.25s ease;
-    font-family: "Poppins", sans-serif;
 }
 
 .checkout-btn:hover {
@@ -73,9 +80,33 @@
     transform: translateY(-2px);
 }
 
-/* Background halaman */
-.checkout-page-bg {
-    background: linear-gradient(to bottom, #6ea8ff, #d8e6ff);
-    min-height: 100vh;
-    padding: 40px 0;
+/* SUMMARY RIGHT */
+.checkout-summary {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+}
+
+.summary-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.summary-total {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
 }

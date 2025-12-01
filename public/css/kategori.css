@@ -1,75 +1,170 @@
 /* ================================
-   KATEGORI INDEX – FIXED LAYOUT
-   ================================ */
-.kategori-container {
+   DESTINASI POPULER – FIXED RESPONSIVE CENTER
+================================ */
+
+/* Wrapper section */
+.populer-wrapper {
     width: 100%;
+    padding: 40px 0;
     display: flex;
     justify-content: center;
-    gap: 40px;
-    padding: 50px 40px;
     background: linear-gradient(#dfe8ff, #bcd1ff);
 }
 
-/* Left sidebar */
-.kategori-left {
-    width: 260px;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 25px;
+/* Grid */
+.destinations {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px;
+}
+
+/* Card */
+.populer-card {
+    width: 100%;
+    max-width: 350px !important;  /* batasi ukuran pasti */
+    margin: 0 auto !important;    /* posisikan ke tengah */
+    background: #fff;
     border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    height: fit-content;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-.kategori-title {
-    font-size: 26px;
+
+.populer-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image */
+.populer-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+/* Body */
+.populer-body {
+    padding: 20px;
+}
+
+/* Title */
+.populer-title {
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 10px;
-    text-align: center;
+    margin-bottom: 6px;
 }
 
-.kategori-subtitle {
-    text-align: center;
-    font-size: 15px;
-    opacity: 0.8;
-    margin-bottom: 25px;
-}
-
-.kategori-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.btn-kategori {
-    display: block;
-    padding: 12px 0;
-    background: #4ca8ff;
-    color: white;
+/* Price */
+.populer-price {
+    font-size: 17px;
     font-weight: 600;
-    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Rating */
+.populer-rating {
+    display: inline-block;
+    background: #e9f2ff;
+    padding: 7px 14px;
     border-radius: 12px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+/* Button */
+.populer-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #ff6b6b;
+    color: #fff;
+    font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.populer-btn:hover {
+    background: #ff4242;
+}
+
+/* GRID */
+.populer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* CARD */
+.populer-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+    transition: 0.25s ease;
+}
+
+.populer-card:hover {
+    transform: translateY(-4px);
+}
+
+/* GAMBAR */
+.populer-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* ISI CARD */
+.populer-body {
+    padding: 15px;
+}
+
+.populer-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.populer-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    min-height: 45px;
+}
+
+.populer-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.populer-rating {
+    margin-bottom: 12px;
+}
+
+/* BUTTON CHECKOUT */
+.checkout-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
     transition: 0.2s;
 }
 
-.btn-kategori:hover {
-    background: #2979ff;
-    transform: translateY(-2px);
-}
-
-/* Right section */
-.kategori-right {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    width: 70%;
-}
-
-.kategori-img {
-    width: 100%;
-    border-radius: 20px;
-    object-fit: cover;
-    height: 260px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+.checkout-btn:hover {
+    background: #ff4b4b;
 }

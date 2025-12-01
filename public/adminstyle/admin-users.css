@@ -1,0 +1,91 @@
+.users-container {
+    padding: 25px;
+}
+
+.users-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.table-wrapper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+/* Table style */
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th {
+    background: #3498db;
+    color: #fff;
+    padding: 12px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.users-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Badge role */
+.badge-admin {
+    background: #2ecc71;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.badge-user {
+    background: #7f8c8d;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+/* Buttons */
+.btn-edit {
+    background: #3498db;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-edit:hover {
+    background: #2980b9;
+}
+
+.btn-toggle {
+    background: #f1c40f;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-toggle:hover {
+    background: #d4ac0d;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}

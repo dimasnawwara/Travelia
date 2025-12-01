@@ -6,8 +6,10 @@
     <title>Travelia</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
 
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
     @yield('css')
 </head>
 <body>
@@ -21,10 +23,11 @@
 
         <div class="nav-right">
             <div class="nav-links">
-                <a href="{{ url('/') }}#home">Home</a>
-                <a href="{{ url('/') }}#kategori">Destinasi</a>
-                <a href="{{ url('/') }}#tentang">Tentang</a>
-                <a href="{{ url('/') }}#kontak">Kontak</a>
+                <a href="{{ route('home') }}#home">Home</a>
+                <a href="{{ route('home') }}#kategori">Destinasi</a>
+                <a href="{{ route('home') }}#tentang">Tentang</a>
+                <a href="{{ route('home') }}#kontak">Kontak</a>
+
 
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf

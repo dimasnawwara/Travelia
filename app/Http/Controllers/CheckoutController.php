@@ -10,10 +10,11 @@ use Illuminate\Http\Request;
 class CheckoutController extends Controller
 {
     public function index($id)
-    {
-        $destinasi = Destinasi::findOrFail($id);
-        return view('checkout.index', compact('destinasi'));
-    }
+{
+    $destinasi = Destinasi::findOrFail($id);
+    return view('checkout.index', compact('destinasi'));
+}
+
 
     public function store(Request $request, $id)
     {

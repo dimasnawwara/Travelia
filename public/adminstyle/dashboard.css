@@ -153,3 +153,100 @@ canvas {
     border-radius: 18px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
+
+/* ---- DASHBOARD STATS ---- */
+
+.stats-container {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.stat-box {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: .2s;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.stat-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    background: #0a3d62;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-icon i {
+    color: white;
+    font-size: 26px;
+}
+
+/* Warna berbeda tiap icon */
+.stat-icon.users {
+    background: #1e3799;
+}
+
+.stat-icon.checkout {
+    background: #eb2f06;
+}
+
+.stat-info h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.stat-info p {
+    font-size: 22px;
+    margin: 5px 0 0;
+    font-weight: bold;
+}
+
+
+.table-pesanan {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-pesanan th {
+    background: #e9eef7;
+    padding: 14px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table-pesanan td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.table-pesanan tr:hover {
+    background: #f7f9fc;
+}
+
+.detail-btn {
+    padding: 6px 12px;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.detail-btn:hover {
+    background: #0056b3;
+}
