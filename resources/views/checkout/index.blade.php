@@ -4,92 +4,77 @@
 
 <link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
 
-<div class="checkout-page-bg">
-    <div class="checkout-wrapper">
+<div class="checkout-container" style="padding-top: 90px;">
 
-        <!-- LEFT SIDE FORM -->
+
+    {{-- Notifikasi --}}
+    @if(session('success'))
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <h2 class="checkout-title">Checkout Pemesanan Tiket</h2>
+
+    <div class="checkout-box">
+
+        {{-- KIRI - Gambar + info destinasi --}}
         <div class="checkout-left">
-            <h2 class="checkout-title">Checkout Tiket Wisata</h2>
 
-            <form action="{{ route('checkout.store', $destinasi->id) }}" method="POST">
-                @csrf
+            <img src="{{ asset('storage/' . $item->gambar) }}" 
+                 alt="{{ $item->nama }}"
+                 class="checkout-img">
 
-                <div class="form-group">
-                    <label class="checkout-label">Nama</label>
-                    <input type="text" name="nama" class="checkout-input" required>
-                </div>
+            <h3 class="dest-title">{{ $item->nama }}</h3>
 
-                <div class="form-group">
-                    <label class="checkout-label">Email</label>
-                    <input type="email" name="email" class="checkout-input" required>
-                </div>
+            <p class="dest-price">
+                Rp {{ number_format($item->harga, 0, ',', '.') }}
+            </p>
 
-                <div class="form-group">
-                    <label class="checkout-label">Tujuan Wisata</label>
-                    <input 
-                        type="text" 
-                        class="checkout-input" 
-                        value="{{ $destinasi->judul }}" 
-                        readonly
-                    >
-                </div>
+            <p class="dest-desc">{{ $item->deskripsi }}</p>
 
-                <div class="form-group">
-                    <label class="checkout-label">Jumlah Tiket</label>
-                    <input 
-                        type="number" 
-                        name="jumlah" 
-                        id="jumlah" 
-                        class="checkout-input" 
-                        min="1" 
-                        value="1" 
-                        required
-                    >
-                </div>
-
-                <button class="checkout-btn">Pesan Tiket</button>
-            </form>
         </div>
 
-        <!-- RIGHT SUMMARY -->
-        <div class="checkout-summary">
-            <h3 class="summary-title">Ringkasan Pesanan</h3>
 
-            <div class="summary-item">
-                <span class="summary-name">{{ $destinasi->judul }}</span>
-                <span class="summary-price" id="hargaSatuan">
-                    Rp {{ number_format($destinasi->harga, 0, ',', '.') }}
-                </span>
-            </div>
+        {{-- KANAN - Form Pemesanan --}}
+        <div class="checkout-form">
 
-            <div class="summary-total">
-                Total  
-                <strong id="totalHarga">
-                    Rp {{ number_format($destinasi->harga, 0, ',', '.') }}
-                </strong>
-            </div>
+            <form action="{{ route('checkout.store', $item->id) }}" method="POST">
+                @csrf
+
+                <label>Nama Pemesan</label>
+                <input type="text" name="nama" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Jumlah Tiket</label>
+                <input type="number" id="jumlah" name="jumlah" min="1" value="1" required>
+
+                <label>Total Harga</label>
+                <input type="text" id="total_harga" readonly class="total-input">
+
+                <button type="submit" class="btn-pesan">Pesan Tiket</button>
+            </form>
+
         </div>
 
     </div>
+
 </div>
 
 <script>
-    const harga = {{ $destinasi->harga }};
-    const jumlahInput = document.getElementById('jumlah');
-    const totalHarga = document.getElementById('totalHarga');
+    const harga = {{ $item->harga }};
+    const jumlah = document.getElementById('jumlah');
+    const total = document.getElementById('total_harga');
 
-    function formatRupiah(angka) {
-        return "Rp " + angka.toLocaleString("id-ID");
+    function updateTotal() {
+        let j = parseInt(jumlah.value) || 1;
+        total.value = "Rp " + (j * harga).toLocaleString('id-ID');
     }
 
-    jumlahInput.addEventListener("input", function() {
-        let jumlah = parseInt(jumlahInput.value);
-
-        if (isNaN(jumlah) || jumlah < 1) jumlah = 1;
-
-        const total = harga * jumlah;
-        totalHarga.textContent = formatRupiah(total);
-    });
+    jumlah.addEventListener('input', updateTotal);
+    updateTotal();
 </script>
 
 @endsection

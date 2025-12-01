@@ -1,112 +1,120 @@
-/* BACKGROUND */
-.checkout-page-bg {
-    background: linear-gradient(to bottom, #6ea8ff, #d8e6ff);
-    min-height: 100vh;
-    padding: 40px 0;
+body {
+    background: #e3f2fd !important;
 }
 
-/* WRAPPER 2 KOLOM */
-.checkout-wrapper {
-    max-width: 1100px;
+/* --- Container Utama --- */
+.checkout-container {
+    max-width: 1200px;
     margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 35px;
-    padding: 20px;
+    padding: 30px;
 }
 
-/* FORM LEFT */
+/* --- Box Utama: kiri dan kanan --- */
+.checkout-box {
+    display: flex;
+    gap: 30px;
+}
+
+/* --- KIRI: Gambar + Informasi Destinasi --- */
 .checkout-left {
+    width: 45%;
     background: #ffffff;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.checkout-img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.dest-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+.dest-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5722;
+    margin-top: 10px;
+}
+
+.dest-desc {
+    margin-top: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- KANAN: Form Checkout --- */
+.checkout-form {
+    width: 55%;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.checkout-form label {
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.checkout-form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.total-input {
+    background: #f1f1f1;
+    font-weight: bold;
+}
+
+/* Tombol Pesan */
+.btn-pesan {
+    margin-top: 20px;
+    width: 100%;
+    background: #ff5722;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-pesan:hover {
+    background: #e64a19;
+}
+
+/* Notifikasi */
+.alert-success {
+    background: #4CAF50;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .checkout-title {
     font-size: 28px;
+    text-align: center;
     font-weight: 700;
     margin-bottom: 25px;
-    text-align: left;
-    font-family: "Poppins", sans-serif;
 }
 
-/* FORM INPUT */
-.form-group {
-    margin-bottom: 18px;
+.alert-success {
+    margin-top: 80px; /* tambahkan jarak dari navbar */
 }
 
-.checkout-label {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    display: block;
-    color: #444;
-}
-
-.checkout-input {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: "Poppins", sans-serif;
-    transition: 0.2s ease;
-}
-
-.checkout-input:focus {
-    border-color: #4A84FF;
-    box-shadow: 0 0 6px rgba(74, 132, 255, 0.35);
-    outline: none;
-}
-
-/* PINDEN BUTTON */
-.checkout-btn {
-    width: 100%;
-    padding: 14px;
-    background: #ff5151;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: 0.25s ease;
-}
-
-.checkout-btn:hover {
-    background: #e94444;
-    transform: translateY(-2px);
-}
-
-/* SUMMARY RIGHT */
-.checkout-summary {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-    height: fit-content;
-}
-
-.summary-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-
-.summary-total {
-    border-top: 1px solid #ddd;
-    padding-top: 15px;
-    font-size: 18px;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
-}

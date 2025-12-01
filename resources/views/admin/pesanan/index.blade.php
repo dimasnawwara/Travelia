@@ -24,17 +24,28 @@
                 <td>{{ $p->nama }}</td>
                 <td>{{ $p->email }}</td>
                 <td>{{ $p->destinasi->judul }}</td>
-                <td>{{ $p->jumlah_tiket }}</td>
+                <td>{{ $p->jumlah }}</td>
                 <td>{{ \Carbon\Carbon::parse($p->tanggal)->format('d M Y') }}</td>
 
-                <td>
-    <a href="{{ route('admin.pesanan.show', $p->id) }}" class="btn-detail">
-        <i class="fa-solid fa-eye"></i> Detail
-    </a>
-</td>
+                <td style="display: flex; gap: 6px;">
 
+                    {{-- Tombol Detail --}}
+<a href="{{ route('admin.pesanan.show', $p->id) }}" class="btn-detail">
+    <i class="fa-solid fa-eye"></i> Detail
+</a>
 
-            </tr>
+{{-- Tombol Hapus --}}
+<form action="{{ route('admin.pesanan.destroy', $p->id) }}" 
+      method="POST" 
+      onsubmit="return confirm('Yakin ingin menghapus pesanan ini?')" 
+      style="display:inline-block;">
+    @csrf
+    @method('DELETE')
+    <button class="btn-delete">
+        <i class="fa-solid fa-trash"></i> Hapus
+    </button>
+</form>
+
             @endforeach
         </tbody>
 

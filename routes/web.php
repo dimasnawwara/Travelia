@@ -67,8 +67,8 @@ Route::middleware(['auth'])->group(function () {
         ->name('checkout');
 
     // PROSES FORM CHECKOUT (FIX MISSED ROUTE)
-    Route::post('/checkout/{id}', [CheckoutController::class, 'store'])
-        ->name('checkout.store');
+Route::post('/checkout/{id}', [CheckoutController::class, 'store'])
+    ->name('checkout.store');
 
 
     // User kirim pesan dari footer
@@ -104,13 +104,14 @@ Route::get('/kategori/{kategori}/{id}', [KategoriController::class, 'detail'])
 
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
+    // Dashboard
     Route::get('/', [AdminDashboardController::class, 'index'])
         ->name('admin.dashboard');
 
-    // CRUD destinasi
+    // CRUD Destinasi
     Route::resource('destinasi', AdminDestinasiController::class, ['as' => 'admin']);
 
-    // User admin control
+    // User Control
     Route::resource('users', AdminUserController::class, ['as' => 'admin'])
         ->only(['index', 'destroy']);
 
@@ -118,16 +119,15 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         ->name('admin.users.toggleAdmin');
 
     // Contact
-Route::resource('contacts', AdminContactController::class, ['as' => 'admin'])
+    Route::resource('contacts', AdminContactController::class, ['as' => 'admin'])
         ->only(['index', 'show', 'destroy']);
 
+    // Pesanan (Index, Detail)
+    Route::resource('pesanan', AdminPesananController::class, ['as' => 'admin'])
+    ->only(['index', 'show', 'destroy']);
 
 
-    // Checkout
-
-Route::resource('pesanan', AdminPesananController::class, ['as' => 'admin'])
-    ->only(['index', 'show']);
-
+    // Checkout status
     Route::post('checkouts/{checkout}/status', [AdminCheckoutController::class, 'updateStatus'])
         ->name('admin.checkouts.status');
 });

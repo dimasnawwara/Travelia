@@ -1,32 +1,36 @@
 <?php
 
-// app/Http/Controllers/CheckoutController.php
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Destinasi;
 use App\Models\Pesanan;
-use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
+    // HALAMAN CHECKOUT
     public function index($id)
-{
-    $destinasi = Destinasi::findOrFail($id);
-    return view('checkout.index', compact('destinasi'));
-}
+    {
+        $item = Destinasi::findOrFail($id);
+        return view('checkout.index', compact('item'));
+    }
 
-
+    // SIMPAN PESANAN
     public function store(Request $request, $id)
     {
-        $destinasi = Destinasi::findOrFail($id);
-
-        Pesanan::create([
-            'nama' => $request->nama,
-            'email' => $request->email,
-            'destinasi_id' => $id,
-            'jumlah' => $request->jumlah,
+        $request->validate([
+            'nama'   => 'required',
+            'email'  => 'required|email',
+            'jumlah' => 'required|integer|min:1',
         ]);
 
-        return redirect('/destinasi')->with('success', 'Pesanan berhasil dibuat!');
+        Pesanan::create([
+            'nama'         => $request->nama,
+            'email'        => $request->email,
+            'destinasi_id' => $id,
+            'jumlah'       => $request->jumlah,
+        ]);
+
+        return redirect()->back()->with('success', 'Pesanan berhasil dibuat!');
     }
 }

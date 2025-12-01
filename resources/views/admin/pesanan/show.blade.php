@@ -1,60 +1,54 @@
 @extends('admin.layout')
 
 @section('content')
-<div class="content">
 
-    <a href="{{ route('admin.pesanan.index') }}" class="btn-back">
-    <i class="fa-solid fa-arrow-left"></i> Kembali</a>
+<link rel="stylesheet" href="{{ asset('adminstyle/admin-pesanan-detail.css') }}">
 
+<div class="pesanan-detail-wrapper">
 
-    <h1 class="mb-4">Detail Pesanan</h1>
+    <h2 class="pesanan-detail-title">Detail Pesanan</h2>
 
-    <div class="card p-4" style="max-width: 700px">
+    <table class="detail-table">
+        <tr>
+            <th>Nama Pemesan</th>
+            <td>{{ $pesanan->nama }}</td>
+        </tr>
 
-        <div class="detail-item">
-            <strong>Nama Pemesan:</strong>
-            <span>{{ $pesanan->nama }}</span>
-        </div>
+        <tr>
+            <th>Email</th>
+            <td>{{ $pesanan->email }}</td>
+        </tr>
 
-        <div class="detail-item">
-            <strong>Email:</strong>
-            <span>{{ $pesanan->email }}</span>
-        </div>
+        <tr>
+            <th>Destinasi</th>
+            <td>{{ $pesanan->destinasi->judul }}</td>
+        </tr>
 
-        <div class="detail-item">
-            <strong>Destinasi:</strong>
-            <span>{{ $pesanan->destinasi->judul }}</span>
-        </div>
+        <tr>
+            <th>Jumlah Tiket</th>
+            <td>{{ $pesanan->jumlah }}</td>
+        </tr>
 
-        <div class="detail-item">
-            <strong>Jumlah Tiket:</strong>
-            <span>{{ $pesanan->jumlah_tiket }}</span>
-        </div>
+        <tr>
+            <th>Harga per Tiket</th>
+            <td>Rp {{ number_format($pesanan->destinasi->harga) }}</td>
+        </tr>
 
-        <div class="detail-item">
-            <strong>Harga Satuan:</strong>
-            <span>
-                Rp {{ number_format($pesanan->destinasi->harga, 0, ',', '.') }}
-            </span>
-        </div>
+        <tr>
+            <th>Total Harga</th>
+            <td class="total-harga">
+                Rp {{ number_format($pesanan->jumlah * $pesanan->destinasi->harga) }}
+            </td>
+        </tr>
 
-        <div class="detail-item">
-            <strong>Total Harga:</strong>
-            <span style="color: green; font-weight: bold;">
-                Rp {{ number_format($pesanan->destinasi->harga * $pesanan->jumlah_tiket, 0, ',', '.') }}
-            </span>
-        </div>
+        <tr>
+            <th>Tanggal Pemesanan</th>
+            <td>{{ $pesanan->created_at->format('d M Y') }}</td>
+        </tr>
+    </table>
 
-        <div class="detail-item">
-            <strong>Tanggal Pesanan:</strong>
-            <span>
-                {{ \Carbon\Carbon::parse($pesanan->created_at)->format('d M Y') }}
-            </span>
-        </div>
-
-    </div>
+    <a href="{{ route('admin.pesanan.index') }}" class="btn-kembali">← Kembali</a>
 
 </div>
-
 
 @endsection

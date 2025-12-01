@@ -1,5 +1,5 @@
 <?php
-// app/Http/Controllers/Admin/CheckoutController.php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -14,9 +14,22 @@ class PesananController extends Controller
     }
 
     public function show($id)
-    {
-        $pesanan = Pesanan::with('destinasi')->findOrFail($id);
-        return view('admin.pesanan.show', compact('pesanan'));
-    }
+{
+    $pesanan = Pesanan::with('destinasi')->findOrFail($id);
+
+    return view('admin.pesanan.show', compact('pesanan'));
+}
+
+
+   public function destroy($id)
+{
+    $pesanan = Pesanan::findOrFail($id);
+    $pesanan->delete();
+
+    return redirect()->route('admin.pesanan.index')
+        ->with('success', 'Pesanan berhasil dihapus');
+}
+
+
 }
 

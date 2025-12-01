@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -15,15 +16,8 @@ class Pesanan extends Model
     ];
 
     public function destinasi()
-{
-    return $this->belongsTo(Destinasi::class);
+    {
+        return $this->belongsTo(Destinasi::class, 'destinasi_id');
+    }
 }
 
-public function getJumlahTiketAttribute()
-{
-    return $this->jumlah;
-}
-
-
-    
-}

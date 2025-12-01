@@ -18,4 +18,10 @@ class Destinasi extends Model
     'is_populer'
 ];
 
+public function pesanan()
+{
+    return $this->hasMany(Pesanan::class);
+}
+
+
 }
